@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.example.hibernate_test.controller", includeFilters = {
+@ComponentScan(basePackages = "tech.hongjian.springhb.controller", includeFilters = {
 		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class) })
 public class WebConfig extends WebMvcConfigurerAdapter {
 

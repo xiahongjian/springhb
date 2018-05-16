@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @Import(HibernateConfig.class)
-@ComponentScan(basePackages = "com.example.hibernate_test", excludeFilters = {
+@ComponentScan(basePackages = "tech.hongjian.springhb", excludeFilters = {
 		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class),
 		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)
 })

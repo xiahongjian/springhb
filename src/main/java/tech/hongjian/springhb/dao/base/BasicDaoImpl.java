@@ -3,14 +3,10 @@ package tech.hongjian.springhb.dao.base;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import javax.transaction.Transactional;
-import javax.transaction.Transactional.TxType;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Transactional
 public abstract class BasicDaoImpl<T, ID> implements BasicDao<T, ID> {
 	
 	@Autowired
@@ -43,7 +39,6 @@ public abstract class BasicDaoImpl<T, ID> implements BasicDao<T, ID> {
 			getSession().remove(entity);
 	}
 
-	@Transactional(value = TxType.SUPPORTS)
 	public T find(ID id) {
 		return getSession().find(clazz, id);
 	}

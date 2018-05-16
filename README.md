@@ -4,5 +4,5 @@
 
 ### 主要内容
 
-[x] 1. Spring+SpringMVC+Hibernate的继承
-[x] 2. Hibernate通用Dao的实现
+[x] 1. Spring+SpringMVC+Hibernate的继承  
+[x] 2. Hibernate通用Dao的实现  

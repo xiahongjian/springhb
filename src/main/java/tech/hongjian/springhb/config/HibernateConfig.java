@@ -11,13 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
-@Configuration
+//@Configuration
 @PropertySource(value = "classpath:ds/ds-jdbc.properties", ignoreResourceNotFound = true)
 public class HibernateConfig {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HibernateConfig.class);
@@ -47,7 +46,7 @@ public class HibernateConfig {
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setPackagesToScan("com.example.hibernate_test.entity");
+		factoryBean.setPackagesToScan("tech.hongjian.springhb.entity");
 		Properties props = new Properties();
 		try {
 			props.load(this.getClass().getClassLoader().getResourceAsStream("ds/hibernate.properties"));
@@ -64,9 +63,10 @@ public class HibernateConfig {
 	}
 	
 	@Bean
-	public PlatformTransactionManager annotationDrivenTransactionManager() {
+	public PlatformTransactionManager transactionManager() {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory());
 		return transactionManager;
 	}
+	
 }
